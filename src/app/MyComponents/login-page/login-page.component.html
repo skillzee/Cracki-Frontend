@@ -1,0 +1,29 @@
+
+
+<div class="main-login-page">
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h3 class="mb-0">Login</h3>
+    </div>
+    <div class="card-body">
+      <form (submit)="onSubmit()">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" placeholder="Enter email">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" placeholder="Enter password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+      </form>
+    </div>
+    <div class="card-footer bg-light">
+      <small>Don't have an account? <a routerLink="/register" href="#">Sign up</a></small>
+    </div>
+  </div>
+</div>
+
+</div>

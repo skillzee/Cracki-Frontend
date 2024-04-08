@@ -1,0 +1,35 @@
+import { Component, NgModule } from '@angular/core';
+import { RouterLink, RouterModule } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AuthService } from '../../auth.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+
+
+
+@Component({
+  selector: 'app-login-page',
+  standalone: true,
+  imports: [RouterLink, RouterModule, FormsModule, HttpClientModule],
+  templateUrl: './login-page.component.html',
+  styleUrl: './login-page.component.css'
+})
+export class LoginPageComponent {
+  email!: string;
+  password!: string;
+
+  constructor(private authService: AuthService) { }
+
+  onSubmit() {
+    this.authService.login(this.email, this.password).subscribe(
+      (response) => {
+        // Handle successful login
+        console.log('Login successful', response);
+      },
+      (error) => {
+        // Handle login error
+        console.error('Login failed', error);
+      }
+    );
+  }
+}
