@@ -15,7 +15,7 @@ export class AuthService {
   }
   
   createPost(title: string, photo: File): Observable<any>{
-    const url = 'http://localhost:3000/posts/new';
+    const url = 'https://cracki-backend.onrender.com/posts/new';
     return this.http.post(url, { title, photo });
 
   }
