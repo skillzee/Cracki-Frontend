@@ -1,8 +1,9 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../../auth.service';
+
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -16,6 +17,8 @@ import { CommonModule } from '@angular/common';
 
 export class RegisterPageComponent {
 
+
+  loading = false;
 
   username: string ="";
   email: string ="";
@@ -33,6 +36,7 @@ export class RegisterPageComponent {
     // };
 
     console.log("Names: "+this.name+this.username+this.password+this.email);
+    this.loading = true
     
 
        
@@ -40,11 +44,15 @@ export class RegisterPageComponent {
       (response) => {
         // Handle successful login
         console.log('Reistration successful', response);
+        this.loading = false
+      
       },
       (error) => {
         // Handle login error
         console.log("after+ ", this.avatar);
         console.error('Registration failed', error);
+        console.log("Parth ",error.error.message);
+        
       }
     );
     

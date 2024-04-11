@@ -1,9 +1,10 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterLink, RouterModule } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { AuthService } from '../../auth.service';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 
 
@@ -25,6 +26,8 @@ export class LoginPageComponent {
       (response) => {
         // Handle successful login
         console.log('Login successful', response);
+        console.log(response.message);
+        
       },
       (error) => {
         // Handle login error

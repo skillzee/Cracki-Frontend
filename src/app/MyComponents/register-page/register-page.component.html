@@ -29,7 +29,7 @@
           <label for="avatar" class="form-label">Profile Pic</label>
           <input type="file" class="form-control" id="avatar" (change)="onAvatarSelected($event)">
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Register</button>
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="loading">Register</button>
       </form>
     </div>
   </div>

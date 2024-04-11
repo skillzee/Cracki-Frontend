@@ -1,8 +1,9 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../../auth.service';
+
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-create-post',
@@ -18,20 +19,28 @@ export class CreatePostComponent {
   title!: string
 
 
-  constructor(private authService: AuthService){ }
+  constructor(private authService: AuthService, private http: HttpClient){ }
 
   onSubmit(): void{
-    this.authService.createPost(this.title, this.photo).subscribe(
-      (response) => {
-        // Handle successful login
-        console.log('Post creation successful', response);
-      },
-      (error) => {
-        // Handle login error
-        console.log("after+ ", this.photo);
-        console.error('Post creation failed', error);
-      }
-    )
+    // this.authService.createPost(this.title, this.photo).subscribe(
+    //   (response) => {
+    //     // Handle successful login
+    //     console.log('Post creation successful', response);
+    //   },
+    //   (error) => {
+    //     // Handle login error
+    //     console.log("after+ ", this.photo);
+    //     console.error('Post creation failed', error);
+    //   }
+    // )
+    const formData = new FormData();
+    formData.append('title', this.title);
+    formData.append('photo', this.photo);
+
+    this.http.post('https://cracki-backend.onrender.com/posts/new', formData).subscribe(()=>{
+      console.log("Post created successfully");
+    })
+    
 
 
     // onAvatarSelected(event: Event): void {
