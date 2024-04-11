@@ -1,8 +1,9 @@
 /* Set container height to 100% of the viewport height */
 .main-login-page {
-  background-image: url("https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-image: url("https://images.pexels.com/photos/2607544/pexels-photo-2607544.jpeg?auto=compress&cs=tinysrgb&w=600");
   background-size: cover;
   background-position: center;
+  overflow: hidden;
   /* display: flex; */
   height: 100vh;
   justify-content: center;
@@ -25,7 +26,8 @@
   border-radius: 20px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.5s ease;
-  background-color: rgba(255, 255, 255, 0.8); /* Adjust card background color opacity */
+  background-color: rgba(255, 255, 255, 0.3); /* Adjust card background color opacity */
+  backdrop-filter: blur(4px);
 }
 
 /* Hover effect for the card */

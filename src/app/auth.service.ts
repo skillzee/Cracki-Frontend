@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,16 @@ export class AuthService {
   
   createPost(title: string, photo: File): Observable<any>{
     const url = 'https://cracki-backend.onrender.com/posts/new';
-    return this.http.post(url, { title, photo });
-
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('photo', photo);
+    
+    return this.http.post(url, formData).pipe(
+      catchError((error) => {
+        console.error('Error creating post:', error);
+        throw error;
+      })
+    );
   }
   register(name: string, username: string, email: string, password: string, avatar: File): Observable<any> {
     const url = 'https://cracki-backend.onrender.com/users/new';
