@@ -1,0 +1,114 @@
+/* my-posts.component.css */
+
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.profile-header {
+  text-align: center;
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.profile-name {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.profile-username {
+  margin: 5px 0 20px;
+  font-size: 16px;
+  color: #666;
+}
+
+.post-container {
+  display: flex;
+  justify-content: center;
+}
+
+.post-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.post-content {
+  padding: 15px;
+}
+
+.username {
+  font-size: small;
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin: 6px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.like-section {
+  display: flex;
+  align-items: center;
+}
+
+.like-section .like-image {
+  width: 24px;
+  height: auto;
+  margin-right: 4px;
+}
+
+.like-section .like-icon {
+  color: #ff0000; /* Example: change the color of the heart icon */
+  font-size: 24px; /* Example: adjust the size of the heart icon */
+  margin-right: 4px;
+}
+
+.like-count {
+  margin-left: 4px;
+  font-size: 14px;
+  color: #555;
+}
+
+.authorName {
+  font-size: small;
+}
+
+.authorName span {
+  font-size: large;
+}
+
+.like-section:hover .like-image {
+  transform: scale(1.2); /* Example: increase size on hover */
+  transition: transform 0.2s ease; /* Example: add smooth transition */
+}

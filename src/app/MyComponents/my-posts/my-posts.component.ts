@@ -1,28 +1,48 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-all-posts',
-  templateUrl: './all-posts.component.html',
-  imports:[CommonModule],
-  standalone:true,
-  styleUrls: ['./all-posts.component.css']
+  selector: 'app-my-posts',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './my-posts.component.html',
+  styleUrl: './my-posts.component.css'
 })
-export class AllPostsComponent implements OnInit {
+export class MyPostsComponent {
+
+  user!: any
+
   posts: any[] = [];
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
+    this.fetchUser();
     this.fetchPosts();
+  }
+
+  fetchUser(): void {
+    this.http.get<any>('http://localhost:3000/users/myProfile', {withCredentials: true}).subscribe(
+      (response) => {
+        if(response.success){
+        this.user = response.user
+      };
+      },
+      (error) => {
+        console.error('Error fetching posts:', error);
+      }
+    );
   }
 
   fetchPosts(): void {
     this.http.get<any>('http://localhost:3000/posts/all', {withCredentials: true}).subscribe(
       (response) => {
         if(response.success){
-        this.posts = response.posts
+        if(response.posts){
+          this.posts = response.posts
+        }
       };
       },
       (error) => {
@@ -43,6 +63,9 @@ export class AllPostsComponent implements OnInit {
       }
     )
   }
+
+
+
 
 
 }

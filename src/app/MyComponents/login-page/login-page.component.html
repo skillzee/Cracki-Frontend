@@ -18,7 +18,7 @@
           <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" placeholder="Enter password">
         </div>
         
-        <button type="submit" class="btn btn-primary w-100">Login</button>
+        <button type="submit" class="btn btn-primary w-100" [disabled]="loading">Login</button>
       </form>
     </div>
     <div class="card-footer bg-light">

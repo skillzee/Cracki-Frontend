@@ -18,25 +18,25 @@ import { AuthService } from '../../services/auth.service';
 export class RegisterPageComponent {
 
 
-  loading = false;
 
   username: string ="";
   email: string ="";
   password: string ="";
   avatar!: File;
   name: string= "";
-
+  loading = false
+  
   constructor(private authService: AuthService) { }
   onSubmit(): void{
+    this.loading = true
     // const newUser = {
     //   username : this.username,
     //   email: this.email,
     //   password: this.password,
     //   profile_pic: this.profile_pic
     // };
-
+    
     console.log("Names: "+this.name+this.username+this.password+this.email);
-    this.loading = true
     
 
        
@@ -44,7 +44,6 @@ export class RegisterPageComponent {
       (response) => {
         // Handle successful login
         console.log('Reistration successful', response);
-        this.loading = false
       
       },
       (error) => {
@@ -54,7 +53,9 @@ export class RegisterPageComponent {
         console.log("Parth ",error.error.message);
         
       }
-    );
+    ).add(() => {
+      this.loading = false
+    })
     
   }
 

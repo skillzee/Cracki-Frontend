@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, EventEmitter, NgModule, Output } from '@angular/core';
 import { RouterLink, RouterModule } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
@@ -18,10 +18,12 @@ import { AuthService } from '../../services/auth.service';
 export class LoginPageComponent {
   email!: string;
   password!: string;
+  loading = false;
 
   constructor(private authService: AuthService) { }
 
   onSubmit() {
+    this.loading = true;
     this.authService.login(this.email, this.password).subscribe(
       (response) => {
         // Handle successful login
@@ -33,6 +35,8 @@ export class LoginPageComponent {
         // Handle login error
         console.error('Login failed', error);
       }
-    );
+    ).add(()=>{
+      this.loading= false;
+    })
   }
 }

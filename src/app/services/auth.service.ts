@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   login(email: string, password: string): Observable<any>{
-    return this.http.post('https://cracki-backend.onrender.com/users/login', {email, password});
+    return this.http.post('http://localhost:3000/users/login', {email, password}, {withCredentials: true});
   }
 
   createPost(title: string, avatar: File): Observable<any>{

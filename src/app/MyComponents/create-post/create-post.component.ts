@@ -17,11 +17,13 @@ import { AuthService } from '../../services/auth.service';
 export class CreatePostComponent {
   photo!: File
   title!: string
+  loading = false
 
 
   constructor(private authService: AuthService, private http: HttpClient){ }
 
   onSubmit(): void{
+    this.loading= true;
     // this.authService.createPost(this.title, this.photo).subscribe(
     //   (response) => {
     //     // Handle successful login
@@ -37,8 +39,10 @@ export class CreatePostComponent {
     formData.append('title', this.title);
     formData.append('photo', this.photo);
 
-    this.http.post('https://cracki-backend.onrender.com/posts/new', formData).subscribe(()=>{
+    this.http.post('http://localhost:3000/posts/new', formData, {withCredentials: true}).subscribe(()=>{
       console.log("Post created successfully");
+    }).add(()=>{
+      this.loading = false;
     })
     
 
