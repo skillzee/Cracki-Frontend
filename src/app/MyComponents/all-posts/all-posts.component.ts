@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Injectable, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostPageComponent } from '../post-page/post-page.component';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-all-posts',
@@ -17,7 +18,7 @@ import { PostPageComponent } from '../post-page/post-page.component';
 export class AllPostsComponent implements OnInit {
   posts: any[] = [];
   postid!:any
-
+  private refreshPosts$ = new BehaviorSubject<boolean>(true);
 
   // @Output() post = new EventEmitter<any>();
 
@@ -44,9 +45,11 @@ export class AllPostsComponent implements OnInit {
     );
   }
 
+  
   like(userid: any) {
     // Get the like icon element by ID
     const likeIcon = document.getElementById('like-icon-' + userid);
+    // this.fetchPosts()
   
     // Trigger animation by adding a CSS class ('clicked') to the like icon
     if (likeIcon) {
@@ -56,7 +59,11 @@ export class AllPostsComponent implements OnInit {
       this.http.get<any>('http://localhost:3000/posts/' + userid, { withCredentials: true }).subscribe(
         (response) => {
           if (response.success) {
-            console.log(response.message); // Log the success message to the console
+            console.log(response.message);
+            // this.router.navigate(["me"])
+            // this.refreshPosts$.next(true);
+            this.fetchPosts()
+            // this.router.navigate(["all"]) // Log the success message to the console
           }
   
           // Remove the 'clicked' class after a short delay to allow animation to complete
