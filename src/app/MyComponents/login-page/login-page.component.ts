@@ -1,5 +1,5 @@
 import { Component, EventEmitter, NgModule, Output } from '@angular/core';
-import { RouterLink, RouterModule } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -19,8 +19,9 @@ export class LoginPageComponent {
   email!: string;
   password!: string;
   loading = false;
+  authenticated= false;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   onSubmit() {
     this.loading = true;
@@ -28,7 +29,10 @@ export class LoginPageComponent {
       (response) => {
         // Handle successful login
         console.log('Login successful', response);
+        this.authenticated= true
+        this.router.navigate(["all"])
         console.log(response.message);
+
         
       },
       (error) => {
@@ -39,4 +43,6 @@ export class LoginPageComponent {
       this.loading= false;
     })
   }
+
+  
 }

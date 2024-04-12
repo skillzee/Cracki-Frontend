@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-posts',
@@ -12,11 +13,13 @@ import { Component } from '@angular/core';
 export class MyPostsComponent {
 
   user!: any
+  postid!:any
+  count=0
 
   posts: any[] = [];
 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     this.fetchUser();
@@ -62,6 +65,15 @@ export class MyPostsComponent {
         console.error('Error liking post:', error);
       }
     )
+  }
+
+  postClicked(id:any):void{
+   
+    this.router.navigateByUrl('post/'+id)
+    
+    console.log("all Post Componet",id);
+    
+    
   }
 
 

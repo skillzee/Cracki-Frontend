@@ -1,33 +1,34 @@
 <!-- my-posts.component.html -->
 <div class="profile-container">
-    <div class="profile-header">
-      <img class="profile-picture" [src]="user?.avatar" alt="Profile Picture">
-      <h1 class="profile-name">{{ user?.name }}</h1>
-      <p class="profile-username">{{ user?.username }}</p>
-    </div>
+  <div class="profile-header">
+    <img class="profile-picture" [src]="user?.avatar" alt="Profile Picture">
+    <h1 class="profile-name">{{ user?.name }}</h1>
+    <p class="profile-username">{{ user?.username }}</p>
   </div>
+</div>
 
-  <hr>
+<hr>
 
-  
-  <h3>My posts</h3>
-  
-  <div *ngFor="let post of posts">
-    @if (post.user == user._id) {
-        <div class="post-container">
-    <div class="post-card" >
-    <div class="post-content">
-      <h3 class="authorName"><span>Author:</span> {{ post.username }}</h3>
-      <img src="{{ post.photo }}" alt="">
-      <h2>{{ post.title }}</h2>
-      <p>{{ post.caption }}</p>
-      <!-- Like Section -->
-      <div class="like-section">
-        <i (click)="like(post._id)" class="fa-solid fa-heart like-icon"></i>
-        <span class="like-count">{{ post.likes }}</span>
-      </div>          
+
+@for (post of posts; track $index) {
+  @if (post.user === user._id) {
+
+    <div class="posts-section">
+      <div  class="post-container">
+        <div class="post-card">
+          <div class="post-content" (click)="postClicked(post._id)">
+            <h3 class="authorName"><span>Author:</span> {{ post.username }}</h3>
+            <img [src]="post.photo" alt="{{ post.title }}">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.caption }}</p>
+            <!-- Like Section -->
+            <div class="like-section">
+              <i class="fa-solid fa-heart like-icon"></i>
+              <span class="like-count">{{ post.likes }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-    </div>
-    }
-  </div>
+  }
+}

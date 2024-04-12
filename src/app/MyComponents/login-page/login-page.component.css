@@ -1,21 +1,21 @@
 /* Set container height to 100% of the viewport height */
 .main-login-page {
-  background-image: url("https://images.pexels.com/photos/2607544/pexels-photo-2607544.jpeg?auto=compress&cs=tinysrgb&w=600");
+  background-image: url("https://wallpaperaccess.com/full/546539.jpg");
   background-size: cover;
   background-position: center;
   overflow: hidden;
   /* display: flex; */
   height: 100vh;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   background-color: rgba(255, 255, 255, 0.5); /* Adjust background color opacity */
 }
 
 .container {
   height: 100vh;
-  /* display: flex; */
+  display: flex;
   /* justify-content: center; */
-  align-items: center;
+  /* align-items: center; */
 }
 
 /* Adjust card width and add some padding */

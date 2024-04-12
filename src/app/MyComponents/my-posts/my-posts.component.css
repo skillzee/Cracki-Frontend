@@ -1,13 +1,24 @@
-/* my-posts.component.css */
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
+}
 
+/* Profile header styles */
 .profile-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 .profile-header {
   text-align: center;
+  margin-bottom: 30px;
+  margin-top: 100px;
 }
 
 .profile-picture {
@@ -15,53 +26,58 @@
   height: 150px;
   border-radius: 50%;
   margin-bottom: 20px;
+  object-fit: cover;
+  border: 3px solid #fff; /* Optional: add border to profile picture */
 }
 
 .profile-name {
-  margin: 0;
+  margin: 5px 0;
   font-size: 24px;
-  color: #333;
+  font-weight: bold;
 }
 
 .profile-username {
-  margin: 5px 0 20px;
+  margin: 0;
   font-size: 16px;
   color: #666;
 }
 
-.post-container {
+/* Post card styles */
+.posts-section {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.post-container {
+  width: calc(33.33% - 20px); /* Responsive width for grid (adjust as needed) */
+  max-width: 400px;
+  margin-bottom: 20px;
 }
 
 .post-card {
-  background-color: #f9f9f9;
+  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 10px;
-  margin: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  max-width: 100%;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .post-content {
   padding: 15px;
 }
 
-.username {
-  font-size: small;
-  margin: 0;
-  font-size: 16px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 8px;
+.authorName {
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 img {
   width: 100%;
   height: auto;
   border-radius: 8px;
+  object-fit: cover;
   margin-bottom: 10px;
 }
 
@@ -82,16 +98,11 @@ p {
   align-items: center;
 }
 
-.like-section .like-image {
-  width: 24px;
-  height: auto;
+.like-icon {
+  color: #ff0000;
+  font-size: 18px;
   margin-right: 4px;
-}
-
-.like-section .like-icon {
-  color: #ff0000; /* Example: change the color of the heart icon */
-  font-size: 24px; /* Example: adjust the size of the heart icon */
-  margin-right: 4px;
+  /* cursor: pointer; */
 }
 
 .like-count {
@@ -100,15 +111,15 @@ p {
   color: #555;
 }
 
-.authorName {
-  font-size: small;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .post-container {
+    width: calc(50% - 20px); /* Adjust for two columns */
+  }
 }
 
-.authorName span {
-  font-size: large;
-}
-
-.like-section:hover .like-image {
-  transform: scale(1.2); /* Example: increase size on hover */
-  transition: transform 0.2s ease; /* Example: add smooth transition */
+@media (max-width: 480px) {
+  .post-container {
+    width: calc(100% - 20px); /* Full width for single column */
+  }
 }

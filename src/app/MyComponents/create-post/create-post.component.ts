@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-post',
@@ -20,7 +21,7 @@ export class CreatePostComponent {
   loading = false
 
 
-  constructor(private authService: AuthService, private http: HttpClient){ }
+  constructor(private authService: AuthService, private http: HttpClient, private router: Router){ }
 
   onSubmit(): void{
     this.loading= true;
@@ -41,6 +42,7 @@ export class CreatePostComponent {
 
     this.http.post('http://localhost:3000/posts/new', formData, {withCredentials: true}).subscribe(()=>{
       console.log("Post created successfully");
+      this.router.navigate(["me"])
     }).add(()=>{
       this.loading = false;
     })

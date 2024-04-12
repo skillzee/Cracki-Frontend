@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class RegisterPageComponent {
   name: string= "";
   loading = false
   
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
   onSubmit(): void{
     this.loading = true
     // const newUser = {
@@ -44,6 +45,7 @@ export class RegisterPageComponent {
       (response) => {
         // Handle successful login
         console.log('Reistration successful', response);
+        this.router.navigate(["login"])
       
       },
       (error) => {

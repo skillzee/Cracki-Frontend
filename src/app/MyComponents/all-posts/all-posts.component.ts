@@ -1,18 +1,31 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Injectable, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { PostPageComponent } from '../post-page/post-page.component';
 
 @Component({
   selector: 'app-all-posts',
   templateUrl: './all-posts.component.html',
-  imports:[CommonModule],
+  imports:[CommonModule, PostPageComponent],
   standalone:true,
   styleUrls: ['./all-posts.component.css']
 })
+@Injectable({
+  providedIn: 'root'
+})
 export class AllPostsComponent implements OnInit {
   posts: any[] = [];
+  postid!:any
 
-  constructor(private http: HttpClient) { }
+
+  // @Output() post = new EventEmitter<any>();
+
+
+
+
+
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.fetchPosts();
@@ -31,18 +44,46 @@ export class AllPostsComponent implements OnInit {
     );
   }
 
-  like(userid: any){
-    this.http.get<any>('http://localhost:3000/posts/'+userid, {withCredentials: true}).subscribe(
-      (response) => {
-        if(response.success){
-          console.log(response.message);
+  like(userid: any) {
+    // Get the like icon element by ID
+    const likeIcon = document.getElementById('like-icon-' + userid);
+  
+    // Trigger animation by adding a CSS class ('clicked') to the like icon
+    if (likeIcon) {
+      likeIcon.classList.add('clicked'); // Add 'clicked' class to trigger animation
+  
+      // Make the HTTP GET request to like the post
+      this.http.get<any>('http://localhost:3000/posts/' + userid, { withCredentials: true }).subscribe(
+        (response) => {
+          if (response.success) {
+            console.log(response.message); // Log the success message to the console
+          }
+  
+          // Remove the 'clicked' class after a short delay to allow animation to complete
+          setTimeout(() => {
+            likeIcon.classList.remove('clicked'); // Remove 'clicked' class to reset animation state
+          }, 400); // Adjust this timeout to match the animation duration in milliseconds
+        },
+        (error) => {
+          console.error('Error liking post:', error); // Log any error that occurs during the HTTP request
         }
-      },
-      (error) => {
-        console.error('Error liking post:', error);
-      }
-    )
+      );
+    }
   }
+  
+  postClicked(id:any):void{
+   
+    this.router.navigateByUrl('post/'+id)
+    
+    console.log("all Post Componet",id);
+    
+    
+  }
+  
+    shareData(){
+      return this.postid
+    }
+  
 
 
 }
