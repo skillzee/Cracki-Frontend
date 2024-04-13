@@ -4,6 +4,7 @@ import { Component, EventEmitter, Injectable, Input, OnInit, Output } from '@ang
 import { Router } from '@angular/router';
 import { PostPageComponent } from '../post-page/post-page.component';
 import { BehaviorSubject } from 'rxjs';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-all-posts',
@@ -26,7 +27,10 @@ export class AllPostsComponent implements OnInit {
 
 
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) { 
+    console.log(authService.isAuthenticated());
+    
+  }
 
   ngOnInit(): void {
     this.fetchPosts();
@@ -95,6 +99,10 @@ export class AllPostsComponent implements OnInit {
     getUserProfile(id:any){
       this.router.navigateByUrl('user/'+id)
     }
+
+
+
+    
 
 
 }

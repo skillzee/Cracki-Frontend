@@ -26,29 +26,7 @@ export class LoginPageComponent {
 
   onSubmit() {
     this.loading = true;
-    this.authService.login(this.email, this.password).subscribe(
-      (response) => {
-        // Handle successful login
-        console.log('Login successful', response);
-        this.authenticated= true
-        localStorage.setItem("localUserData",response.success)
-        this.router.navigate(["all"])
-        this.authService.setUid(true)
-        console.log("Login?: ",this.authService.getUid());
-        
-
-        console.log(response.message);
-        // this.nav.isLoggedIn = true
-
-        
-      },
-      (error) => {
-        // Handle login error
-        console.error('Login failed', error);
-      }
-    ).add(()=>{
-      this.loading= false;
-    })
+    this.authService.login(this.email, this.password)
   }
 
   

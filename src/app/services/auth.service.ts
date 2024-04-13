@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,8 +9,9 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
 
-  isAuthenticated:boolean = false
-  constructor(private http: HttpClient) { }
+  private uid!:any
+  // uiid!:any
+  constructor(private http: HttpClient, private router: Router) {   }
 
   register(name: string, username: string,email: string, password: string, avatar: File): Observable<any>{
     const fd = new FormData();
@@ -21,21 +23,31 @@ export class AuthService {
     return this.http.post('http://localhost:3000/users/new', fd);
   }
 
-  login(email: string, password: string): Observable<any>{
-    return this.http.post('http://localhost:3000/users/login', {email, password}, {withCredentials: true});
+  login(email: string, password: string){
+    this.http.post<any>('http://localhost:3000/users/login', {email, password}, {withCredentials: true}).subscribe((response)=>{
+      console.log('Login successful', response);
+      this.router.navigate(["all"])
+      // this.uid = response
+      localStorage.setItem('uid', response._id);
+
+    },
+  (error)=>{
+    console.log("Error While Logging In");
+  });
   }
 
   createPost(title: string, avatar: File): Observable<any>{
     return this.http.post('https://cracki-backend.onrender.com/posts/new', {title, avatar});
   }
 
-  setUid(auth:boolean){
-    this.isAuthenticated=auth;
 
+
+  isAuthenticated(): boolean{
+    return !!localStorage.getItem('uid');
   }
 
-  getUid(){
-    return this.isAuthenticated
+  resetAuthentication(){
+    localStorage.removeItem('uid');
   }
   }
 

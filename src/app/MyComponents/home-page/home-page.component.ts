@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { LoginPageComponent } from '../login-page/login-page.component';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home-page',
@@ -13,14 +14,21 @@ import { AuthService } from '../../services/auth.service';
 })
 export class HomePageComponent {
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private http: HttpClient) { }
+
 
   ngOnInit(){
-    console.log("Logged in?:",this.authService.getUid())
+    this.http.post<any>("http://localhost:3000/users/logout",{}, {withCredentials: true}).subscribe((response)=>{
+      console.log(response.message);
       
+      console.log("Logged Out suuceesFully");
+      
+    },
+  (error)=>{
+    console.log("Error While Logging Out");
+    
+  })
   }
-
-
 
   login(){
     this.router.navigate(['login']);

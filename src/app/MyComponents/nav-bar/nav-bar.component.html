@@ -6,33 +6,30 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto"> 
-        @if (authservice.getUid()) {
+      <ul class="navbar-nav ml-auto">
+        <ng-container *ngIf="authservice.isAuthenticated(); else notAuthenticated">
           <li class="nav-item">
-            <a class="nav-link"  routerLink="/all">All Post</a>
+            <a class="nav-link" routerLink="/all">All Post</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  routerLink="/create-post">Add Post</a>
+            <a class="nav-link" routerLink="/create-post">Add Post</a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link"  routerLink="/me">My Profile</a>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/me">My Profile</a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="#"  (click)="logOut()">Log Out</a>
+          <li class="nav-item logOut">
+            <a class="nav-link btn-danger" href="#" (click)="logOut()">Log Out</a>
           </li>
+        </ng-container>
 
-        }
-        <!-- Use ml-auto to move items to the right -->
-        @if (!authservice.getUid()) {
-        <li class="nav-item active space ">
-          <a class="nav-link"  routerLink="/login">Login</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link"  routerLink="/register">Register</a>
-        </li>
-      }
-
-
+        <ng-template #notAuthenticated>
+          <li class="nav-item active space">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register">Register</a>
+          </li>
+        </ng-template>
       </ul>
     </div>
   </div>

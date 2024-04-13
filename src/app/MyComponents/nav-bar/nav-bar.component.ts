@@ -15,20 +15,16 @@ import { AuthService } from '../../services/auth.service';
 })
 export class NavBarComponent {
   
-  
-  menuType:String = "default"
-
-  isLoggedIn:boolean = false;
 
   // authservice!:AuthService
   constructor(private http: HttpClient, private route: Router,public authservice: AuthService){}
   logOut(){
+    this.authservice.resetAuthentication()
     
+    this.route.navigate(["login"])
     this.http.post<any>("http://localhost:3000/users/logout",{}, {withCredentials: true}).subscribe((response)=>{
       console.log(response.message);
-      this.authservice.setUid(false)
-      console.log("Login?: ",this.authservice.getUid());
-      
+      console.log("Login?: ",this.authservice.isAuthenticated());
       console.log("Logged Out suuceesFully");
       
     },
