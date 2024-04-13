@@ -9,13 +9,13 @@
       <ul class="navbar-nav ml-auto">
         <ng-container *ngIf="authservice.isAuthenticated(); else notAuthenticated">
           <li class="nav-item">
-            <a class="nav-link" routerLink="/all">All Post</a>
+            <a class="nav-link btn btn-light" routerLink="/all">All Post</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/create-post">Add Post</a>
+            <a class="nav-link btn btn-light" routerLink="/create-post">Add Post</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/me">My Profile</a>
+            <a class="nav-link btn btn-light" routerLink="/me">My Profile</a>
           </li>
           <li class="nav-item logOut">
             <a class="nav-link btn btn-danger" href="#" (click)="logOut()">Log Out</a>
@@ -24,10 +24,10 @@
 
         <ng-template #notAuthenticated>
           <li class="nav-item active space">
-            <a class="nav-link" routerLink="/login">Login</a>
+            <a class="nav-link btn btn-light" routerLink="/login">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/register">Register</a>
+            <a class="nav-link btn btn-light" routerLink="/register">Register</a>
           </li>
         </ng-template>
       </ul>
