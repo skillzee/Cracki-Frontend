@@ -56,8 +56,11 @@
   }
   
   /* Comments list */
-  .comments-list {
+  /* Comments list */
+.comments-list {
     margin-top: 20px;
+    max-height: 300px; /* Set a maximum height for the container */
+    overflow-y: auto; /* Enable vertical scrolling */
   }
   
   .comments-list h3 {
@@ -68,6 +71,7 @@
   .comments-list ul {
     list-style-type: none;
     padding: 0;
+    margin: 0; /* Remove default margin */
   }
   
   .comments-list li {
@@ -124,7 +128,8 @@
     border-bottom-color: #3897f0; /* Change border color when focused */
     outline: none;
   }
-
-  .info{
+  
+  .info {
     padding-left: 15%;
   }
+  

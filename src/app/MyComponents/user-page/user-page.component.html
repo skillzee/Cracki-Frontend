@@ -1,0 +1,32 @@
+<div class="profile-container">
+    <div class="profile-header">
+      <img class="profile-picture" [src]="user?.avatar" alt="Profile Picture">
+      <h1 class="profile-name">{{ user?.name }}</h1>
+      <p class="profile-username">{{ user?.username }}</p>
+    </div>
+  </div>
+  
+  <hr>
+  
+  <div class="main">
+  <div class="posts-section" *ngFor="let post of posts; let i = index" >
+    <div class="post-container">
+      @if (post.user === user._id) {
+        <div class="post-card">
+          <div class="post-content" (click)="postClicked(post._id)">
+            <h3 class="authorName"><span>Author:</span> {{ post.username }}</h3>
+            <img [src]="post.photo" alt="{{ post.title }}">
+            <p class="display-1 font-monospace">{{ post.title }}</p>
+            <p>{{ post.caption }}</p>
+            <!-- Like Section -->
+            <div class="like-section">
+              <i class="fa-solid fa-heart like-icon"></i>
+              <span class="like-count">{{ post.likes }}</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+  </div>
+  

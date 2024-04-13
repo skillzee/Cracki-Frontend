@@ -15,24 +15,26 @@
               class="fa-solid fa-heart like-icon"
         ></i>
        {{ post.likes }}</p>
-      <p>Posted by: {{ post.username }}</p>
+      <p>Posted by: {{ post.username }} </p>
+      <p> {{post.createdAt | date}}</p>
 
 
   
+      <h3 style="font-size: medium;">Comments:</h3>
       <div class="comments-list">
-        <h3>Comments</h3>
         <ul>
           <li *ngFor="let comment of post.comments">
-            <p><strong>{{ comment.author }}</strong>: {{ comment.text }}</p>
+            <p><strong style="cursor: pointer;" (click)="getUserProfile(comment.user)">{{ comment.author }}</strong>: {{ comment.text }}</p>
             <small>Posted on: {{ comment.createdAt | date }}</small>
           </li>
         </ul>
       </div>
 
       <h2>Add a comment</h2>
-      <!-- <form action="" (submit)="onSubmit()"> -->
-      <input type="text" >
-        <!-- </form> -->
+      <form>
+      <input type="text" name="comment" [(ngModel)]="comment" placeholder="comment">
+      <button (click)="sendComment()" >Comment</button>
+        </form>
 
     </div>
   </div>

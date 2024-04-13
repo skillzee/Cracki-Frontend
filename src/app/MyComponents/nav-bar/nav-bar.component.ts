@@ -3,16 +3,20 @@ import { LoginPageComponent } from '../login-page/login-page.component';
 import { Router, RouterModule } from '@angular/router';
 import { routes } from '../../app.routes';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [LoginPageComponent, RouterModule, HttpClientModule],
+  imports: [LoginPageComponent, RouterModule, HttpClientModule, CommonModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
   
+  
+
+  isLoggedIn = false;
 
   constructor(private http: HttpClient){}
   logOut(){

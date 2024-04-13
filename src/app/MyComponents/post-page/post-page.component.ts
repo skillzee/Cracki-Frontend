@@ -16,8 +16,9 @@ export class PostPageComponent {
   post!:any
   postid!: any
   count=0
+  comment!:string
   activatedRoute = inject(ActivatedRoute)
-  constructor(private http: HttpClient, private route: ActivatedRoute){ }
+  constructor(private http: HttpClient, private route: ActivatedRoute,private router: Router){ }
 
   ngOnInit(){
     this.postid = this.activatedRoute.snapshot.params['id'];
@@ -52,6 +53,7 @@ export class PostPageComponent {
         (response) => {
           if (response.success) {
             console.log(response.message); // Log the success message to the console
+            this.getParticularPost(this.postid)
           }
   
           // Remove the 'clicked' class after a short delay to allow animation to complete
@@ -64,6 +66,31 @@ export class PostPageComponent {
         }
       );
     }
+  }
+
+  sendComment(){
+
+    this.http.put<any>('http://localhost:3000/posts/'+this.postid+ '/comment',{comment:this.comment}, {withCredentials:true}).subscribe(
+      (response)=>{
+        console.log(response);
+        this.getParticularPost(this.postid)
+        this.comment=""
+        
+      },
+      (error)=>{
+        console.log(error);
+        
+      }
+    )
+
+  }
+
+  getUserProfile(id:any){
+    this.router.navigateByUrl('user/'+id)
+  }
+
+  onSubmit(){
+    
   }
   
 

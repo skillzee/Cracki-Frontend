@@ -92,5 +92,9 @@ export class AllPostsComponent implements OnInit {
     }
   
 
+    getUserProfile(id:any){
+      this.router.navigateByUrl('user/'+id)
+    }
+
 
 }

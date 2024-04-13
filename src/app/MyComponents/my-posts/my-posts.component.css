@@ -5,16 +5,6 @@ body {
   color: #333;
 }
 
-/* Profile header styles */
-.profile-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-}
-
 .profile-header {
   text-align: center;
   margin-bottom: 30px;
@@ -27,7 +17,7 @@ body {
   border-radius: 50%;
   margin-bottom: 20px;
   object-fit: cover;
-  border: 3px solid #fff; /* Optional: add border to profile picture */
+  border: 3px solid #fff;
 }
 
 .profile-name {
@@ -42,19 +32,6 @@ body {
   color: #666;
 }
 
-/* Post card styles */
-.posts-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.post-container {
-  width: calc(33.33% - 20px); /* Responsive width for grid (adjust as needed) */
-  max-width: 400px;
-  margin-bottom: 20px;
-}
-
 .post-card {
   background-color: #fff;
   border: 1px solid #ddd;
@@ -62,10 +39,7 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   cursor: pointer;
-}
-
-.post-content {
-  padding: 15px;
+  margin: 20px;
 }
 
 .authorName {
@@ -102,7 +76,6 @@ p {
   color: #ff0000;
   font-size: 18px;
   margin-right: 4px;
-  /* cursor: pointer; */
 }
 
 .like-count {
@@ -111,15 +84,57 @@ p {
   color: #555;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .post-container {
-    width: calc(50% - 20px); /* Adjust for two columns */
+.main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.post-content {
+  width: 300px;
+  padding: 5px 10px 5px 10px;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .profile-picture {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-name {
+    font-size: 20px;
+  }
+
+  .profile-username {
+    font-size: 14px;
+  }
+
+  .post-content {
+    width: 90%;
+    margin: 10px;
+  }
+
+  .post-card {
+    margin: 10px;
   }
 }
 
-@media (max-width: 480px) {
-  .post-container {
-    width: calc(100% - 20px); /* Full width for single column */
+@media screen and (max-width: 480px) {
+  .profile-name {
+    font-size: 18px;
+  }
+
+  .profile-username {
+    font-size: 12px;
+  }
+
+  .post-content {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .post-card {
+    margin: 10px 5px;
   }
 }

@@ -5,6 +5,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 
 
@@ -32,6 +33,7 @@ export class LoginPageComponent {
         this.authenticated= true
         this.router.navigate(["all"])
         console.log(response.message);
+        // this.nav.isLoggedIn = true
 
         
       },
