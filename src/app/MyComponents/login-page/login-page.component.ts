@@ -31,7 +31,12 @@ export class LoginPageComponent {
         // Handle successful login
         console.log('Login successful', response);
         this.authenticated= true
+        localStorage.setItem("localUserData",response.success)
         this.router.navigate(["all"])
+        this.authService.setUid(true)
+        console.log("Login?: ",this.authService.getUid());
+        
+
         console.log(response.message);
         // this.nav.isLoggedIn = true
 

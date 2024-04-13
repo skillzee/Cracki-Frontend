@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { LoginPageComponent } from '../login-page/login-page.component';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home-page',
@@ -12,7 +13,15 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
+
+  ngOnInit(){
+    console.log("Logged in?:",this.authService.getUid())
+      
+  }
+
+
+
   login(){
     this.router.navigate(['login']);
   }

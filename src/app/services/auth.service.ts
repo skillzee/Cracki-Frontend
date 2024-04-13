@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
+
+  isAuthenticated:boolean = false
   constructor(private http: HttpClient) { }
 
   register(name: string, username: string,email: string, password: string, avatar: File): Observable<any>{
@@ -26,5 +28,16 @@ export class AuthService {
   createPost(title: string, avatar: File): Observable<any>{
     return this.http.post('https://cracki-backend.onrender.com/posts/new', {title, avatar});
   }
+
+  setUid(auth:boolean){
+    this.isAuthenticated=auth;
+
   }
+
+  getUid(){
+    return this.isAuthenticated
+  }
+  }
+
+  
 
