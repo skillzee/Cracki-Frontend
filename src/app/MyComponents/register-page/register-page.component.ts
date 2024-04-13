@@ -46,6 +46,7 @@ export class RegisterPageComponent {
         // Handle successful login
         console.log('Reistration successful', response);
         this.router.navigate(["login"])
+        alert("Registration Successful")
       
       },
       (error) => {
@@ -53,6 +54,10 @@ export class RegisterPageComponent {
         console.log("after+ ", this.avatar);
         console.error('Registration failed', error);
         console.log("Parth ",error.error.message);
+        if (error.error && error.error.message) {
+          console.log("Error message from server:", error.error.message);
+          alert(error.error.message);
+      }
         
       }
     ).add(() => {
