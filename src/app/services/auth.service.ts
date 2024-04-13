@@ -29,10 +29,15 @@ export class AuthService {
       this.router.navigate(["all"])
       // this.uid = response
       localStorage.setItem('uid', response._id);
+      alert("Logged In SuccessFully")
 
     },
   (error)=>{
     console.log("Error While Logging In");
+    if (error.error && error.error.message) {
+      console.log("Error message from server:", error.error.message);
+      alert(error.error.message+" Please reload the Page");
+  }
   });
   }
 
