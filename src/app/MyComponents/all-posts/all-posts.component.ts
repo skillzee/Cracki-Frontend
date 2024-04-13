@@ -60,7 +60,7 @@ export class AllPostsComponent implements OnInit {
       likeIcon.classList.add('clicked'); // Add 'clicked' class to trigger animation
   
       // Make the HTTP GET request to like the post
-      this.http.get<any>('http://localhost:3000/posts/' + userid, { withCredentials: true }).subscribe(
+      this.http.get<any>('https://cracki-backend.onrender.com/posts/' + userid, { withCredentials: true }).subscribe(
         (response) => {
           if (response.success) {
             console.log(response.message);
