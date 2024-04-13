@@ -37,7 +37,7 @@ export class AllPostsComponent implements OnInit {
   }
 
   fetchPosts(): void {
-    this.http.get<any>('http://localhost:3000/posts/all', {withCredentials: true}).subscribe(
+    this.http.get<any>('https://cracki-backend.onrender.com/posts/all', {withCredentials: true}).subscribe(
       (response) => {
         if(response.success){
         this.posts = response.posts

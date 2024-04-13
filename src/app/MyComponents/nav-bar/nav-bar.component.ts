@@ -16,13 +16,19 @@ import { AuthService } from '../../services/auth.service';
 export class NavBarComponent {
   
 
+  isNavbarCollapsed = true;
+
+  toggleNavbar() {
+    this.isNavbarCollapsed = !this.isNavbarCollapsed;
+  }
+
   // authservice!:AuthService
   constructor(private http: HttpClient, private route: Router,public authservice: AuthService){}
   logOut(){
     this.authservice.resetAuthentication()
     
     this.route.navigate(["login"])
-    this.http.post<any>("http://localhost:3000/users/logout",{}, {withCredentials: true}).subscribe((response)=>{
+    this.http.post<any>("https://cracki-backend.onrender.com/users/logout",{}, {withCredentials: true}).subscribe((response)=>{
       console.log(response.message);
       console.log("Login?: ",this.authservice.isAuthenticated());
       console.log("Logged Out suuceesFully");

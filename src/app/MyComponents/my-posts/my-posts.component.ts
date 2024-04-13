@@ -27,7 +27,7 @@ export class MyPostsComponent {
   }
 
   fetchUser(): void {
-    this.http.get<any>('http://localhost:3000/users/myProfile', {withCredentials: true}).subscribe(
+    this.http.get<any>('https://cracki-backend.onrender.com/users/myProfile', {withCredentials: true}).subscribe(
       (response) => {
         if(response.success){
         this.user = response.user
@@ -40,7 +40,7 @@ export class MyPostsComponent {
   }
 
   fetchPosts(): void {
-    this.http.get<any>('http://localhost:3000/posts/all', {withCredentials: true}).subscribe(
+    this.http.get<any>('https://cracki-backend.onrender.com/posts/all', {withCredentials: true}).subscribe(
       (response) => {
         if(response.success){
         if(response.posts){
@@ -55,7 +55,7 @@ export class MyPostsComponent {
   }
 
   like(userid: any){
-    this.http.get<any>('http://localhost:3000/posts/'+userid, {withCredentials: true}).subscribe(
+    this.http.get<any>('https://cracki-backend.onrender.com/posts/'+userid, {withCredentials: true}).subscribe(
       (response) => {
         if(response.success){
           console.log(response.message);

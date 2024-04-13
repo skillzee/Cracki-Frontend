@@ -40,7 +40,7 @@ export class CreatePostComponent {
     formData.append('title', this.title);
     formData.append('photo', this.photo);
 
-    this.http.post('http://localhost:3000/posts/new', formData, {withCredentials: true}).subscribe(()=>{
+    this.http.post('https://cracki-backend.onrender.com/posts/new', formData, {withCredentials: true}).subscribe(()=>{
       console.log("Post created successfully");
       this.router.navigate(["me"])
     }).add(()=>{

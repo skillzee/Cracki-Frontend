@@ -18,7 +18,7 @@ export class HomePageComponent {
 
 
   ngOnInit(){
-    this.http.post<any>("http://localhost:3000/users/logout",{}, {withCredentials: true}).subscribe((response)=>{
+    this.http.post<any>("https://cracki-backend.onrender.com/users/logout",{}, {withCredentials: true}).subscribe((response)=>{
       console.log(response.message);
       
       console.log("Logged Out suuceesFully");

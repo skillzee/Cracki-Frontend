@@ -20,11 +20,11 @@ export class AuthService {
     fd.append('email', email);
     fd.append('password', password);
     fd.append('avatar', avatar);
-    return this.http.post('http://localhost:3000/users/new', fd);
+    return this.http.post('https://cracki-backend.onrender.com/users/new', fd);
   }
 
   login(email: string, password: string){
-    this.http.post<any>('http://localhost:3000/users/login', {email, password}, {withCredentials: true}).subscribe((response)=>{
+    this.http.post<any>('https://cracki-backend.onrender.com/users/login', {email, password}, {withCredentials: true}).subscribe((response)=>{
       console.log('Login successful', response);
       this.router.navigate(["all"])
       // this.uid = response

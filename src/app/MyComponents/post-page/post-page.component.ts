@@ -29,7 +29,7 @@ export class PostPageComponent {
   
 
   getParticularPost(id:any){
-    this.http.get<any>("http://localhost:3000/posts/post/"+id, {withCredentials: true}).subscribe(
+    this.http.get<any>("https://cracki-backend.onrender.com/posts/post/"+id, {withCredentials: true}).subscribe(
     (respose)=>{
       this.post = respose.post
     },
@@ -49,7 +49,7 @@ export class PostPageComponent {
       likeIcon.classList.add('clicked'); // Add 'clicked' class to trigger animation
   
       // Make the HTTP GET request to like the post
-      this.http.get<any>('http://localhost:3000/posts/' + userid, { withCredentials: true }).subscribe(
+      this.http.get<any>('https://cracki-backend.onrender.com/posts/' + userid, { withCredentials: true }).subscribe(
         (response) => {
           if (response.success) {
             console.log(response.message); // Log the success message to the console
@@ -70,7 +70,7 @@ export class PostPageComponent {
 
   sendComment(){
 
-    this.http.put<any>('http://localhost:3000/posts/'+this.postid+ '/comment',{comment:this.comment}, {withCredentials:true}).subscribe(
+    this.http.put<any>('https://cracki-backend.onrender.com/posts/'+this.postid+ '/comment',{comment:this.comment}, {withCredentials:true}).subscribe(
       (response)=>{
         console.log(response);
         this.getParticularPost(this.postid)
