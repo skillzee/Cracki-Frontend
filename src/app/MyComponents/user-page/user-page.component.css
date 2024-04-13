@@ -1,141 +1,157 @@
 /* Global styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    color: #333;
-  }
-  
-  .profile-header {
-    text-align: center;
-    margin-bottom: 30px;
-    margin-top: 100px;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+
+.profile-container{
+  background-image: url("https://wallpapercave.com/uwp/uwp4220560.jpeg");
+
+}
+
+
+
+.profile-header {
+  text-align: center;
+  margin-bottom: -17px;
+  margin-top: 56px;
+  height:300px;
+
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  object-fit: cover;
+  border: 3px solid #fff;
+  margin-top: 42px;
+}
+
+.profile-name {
+  margin: 5px 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.profile-username {
+  margin: 0;
+  font-size: 16px;
+  color: #666;
+}
+
+.post-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.authorName {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin: 6px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.like-section {
+  display: flex;
+  align-items: center;
+}
+
+.like-icon {
+  color: #ff0000;
+  font-size: 18px;
+  margin-right: 4px;
+}
+
+.like-count {
+  margin-left: 4px;
+  font-size: 14px;
+  color: #555;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.post-content {
+  width: 300px;
+  padding: 5px 10px 5px 10px;
+
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
   .profile-picture {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    object-fit: cover;
-    border: 3px solid #fff;
+    width: 120px;
+    height: 120px;
   }
-  
+
   .profile-name {
-    margin: 5px 0;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 20px;
   }
-  
+
   .profile-username {
-    margin: 0;
-    font-size: 16px;
-    color: #666;
-  }
-  
-  .post-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    cursor: pointer;
-    margin: 20px;
-  }
-  
-  .authorName {
     font-size: 14px;
-    margin-bottom: 10px;
   }
-  
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover;
-    margin-bottom: 10px;
-  }
-  
-  h2 {
-    margin: 6px 0;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  p {
-    margin: 6px 0;
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .like-section {
-    display: flex;
-    align-items: center;
-  }
-  
-  .like-icon {
-    color: #ff0000;
-    font-size: 18px;
-    margin-right: 4px;
-  }
-  
-  .like-count {
-    margin-left: 4px;
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .main {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
+
   .post-content {
-    width: 300px;
-    padding: 5px 10px 5px 10px;
+    width: 90%;
+    margin: 10px;
   }
-  
-  /* Responsive design */
-  @media screen and (max-width: 768px) {
-    .profile-picture {
-      width: 120px;
-      height: 120px;
-    }
-  
-    .profile-name {
-      font-size: 20px;
-    }
-  
-    .profile-username {
-      font-size: 14px;
-    }
-  
-    .post-content {
-      width: 90%;
-      margin: 10px;
-    }
-  
-    .post-card {
-      margin: 10px;
-    }
+
+  .post-card {
+    margin: 10px;
   }
-  
-  @media screen and (max-width: 480px) {
-    .profile-name {
-      font-size: 18px;
-    }
-  
-    .profile-username {
-      font-size: 12px;
-    }
-  
-    .post-content {
-      width: 100%;
-      margin: 10px 0;
-    }
-  
-    .post-card {
-      margin: 10px 5px;
-    }
+}
+
+@media screen and (max-width: 480px) {
+  .profile-name {
+    font-size: 18px;
   }
-  
+
+  .profile-username {
+    font-size: 12px;
+  }
+
+  .post-content {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .post-card {
+    margin: 10px 5px;
+  }
+}
+
+.fullpage{
+  background-image: url("https://wallpapercave.com/uwp/uwp4240875.jpeg");
+
+}
