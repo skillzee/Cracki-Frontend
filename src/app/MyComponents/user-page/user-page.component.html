@@ -14,7 +14,7 @@
       @if (post.user === user._id) {
         <div class="post-card">
           <div class="post-content" (click)="postClicked(post._id)">
-            <h3 class="authorName"><span>Author:</span> {{ post.username }}</h3>
+            <!-- <h3 class="authorName"> {{ post.username }}</h3> -->
             <img [src]="post.photo" alt="{{ post.title }}">
             <p class="display-1 font-monospace">{{ post.title }}</p>
             <p>{{ post.caption }}</p>

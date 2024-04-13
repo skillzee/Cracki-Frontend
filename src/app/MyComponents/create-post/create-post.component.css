@@ -1,16 +1,17 @@
 /* Set container height to 100% of the viewport height */
 .main-post-page {
-    background-image: url("https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-image: url("https://wallpapercave.com/wp/wp13641295.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
     height: 100vh;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.5); /* Adjust background color opacity */
   }
   
   .create-post-container {
+    margin-right: 170px;
     max-width: 500px;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.8); /* Adjust container background color opacity */

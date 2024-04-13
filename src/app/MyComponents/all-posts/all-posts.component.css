@@ -14,11 +14,12 @@ body {
 }
 .image-main{
   position: relative;
-  background-image: url("https://cdn.pixabay.com/photo/2016/03/27/21/16/pet-1284307_1280.jpg");
-  background-size: cover; /* Cover the entire container */
-  background-position: center; /* Center the background image */
-  background-repeat: no-repeat; /* Do not repeat the background image */
-  background-attachment: fixed; /* Fixed background position */
+  background-image: url("https://wallpapercave.com/uwp/uwp4220560.jpeg");
+  /* background-size: cover; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  background-attachment: fixed; 
+  /* height: 100vh; */
 }
 
 .mode-toggle {
@@ -61,11 +62,16 @@ body {
 .post-content {
   padding: 15px;
   /* margin-top: 20px; */
+  background-color: rgb(243, 226, 226);
+  border: 3px solid #8e6767;
+  border-radius: 10px;
+  box-shadow: 10px 10px #333;
+
 }
 
 .authorName {
   font-size: 22px;
-  margin: 10px 7px 9px 8px;
+  /* margin: 10px 7px 9px 8px; */
 }
 
 

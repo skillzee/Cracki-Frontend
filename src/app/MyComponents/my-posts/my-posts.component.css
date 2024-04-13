@@ -5,10 +5,19 @@ body {
   color: #333;
 }
 
+.profile-container{
+  background-image: url("https://wallpapercave.com/wp/wp12023804.jpg");
+
+}
+
+
+
 .profile-header {
   text-align: center;
-  margin-bottom: 30px;
-  margin-top: 100px;
+  margin-bottom: -17px;
+  margin-top: 36px;
+  height:300px;
+
 }
 
 .profile-picture {
@@ -18,6 +27,7 @@ body {
   margin-bottom: 20px;
   object-fit: cover;
   border: 3px solid #fff;
+  margin-top: 42px;
 }
 
 .profile-name {
@@ -93,6 +103,7 @@ p {
 .post-content {
   width: 300px;
   padding: 5px 10px 5px 10px;
+
 }
 
 /* Responsive design */
@@ -137,4 +148,9 @@ p {
   .post-card {
     margin: 10px 5px;
   }
+}
+
+.fullpage{
+  background-image: url("https://wallpapercave.com/uwp/uwp4240875.jpeg");
+
 }
