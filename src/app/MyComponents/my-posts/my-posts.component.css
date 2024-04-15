@@ -7,9 +7,10 @@ body {
 
 
 .profile-container{
-  background-image: url("https://wallpapercave.com/uwp/uwp4220560.jpeg");
+  background-image: url("https://i.imgur.com/QU720iH.jpg");
 
 }
+
 
 
 
@@ -18,6 +19,9 @@ body {
   margin-bottom: -17px;
   margin-top: 56px;
   height:300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
 }
 
@@ -28,7 +32,9 @@ body {
   margin-bottom: 20px;
   object-fit: cover;
   border: 3px solid #fff;
-  margin-top: 42px;
+
+  margin-top: 5px;
+  
 }
 
 .profile-name {
@@ -51,7 +57,7 @@ body {
   overflow: hidden;
   cursor: pointer;
   margin: 20px;
-  box-shadow: 0 0 10px rgb(242, 152, 207), 0 0 20px rgb(234, 132, 190), 0 0 30px rgb(30, 7, 7);;
+  box-shadow: 0 0 10px #c7c0d9, 0 0 20px #c7c0d9, 0 0 30px #c7c0d9;;
 
 }
 
@@ -155,5 +161,15 @@ p {
 
 .fullpage{
   background-image: url("https://wallpapercave.com/uwp/uwp4240875.jpeg");
+
+}
+
+.boxchild{
+  /* margin-bottom: 20px; */
+  background-color: #c7c0d9;
+  width: 200px;
+  height: 250px;
+  border-radius: 10px;
+  /* display: flex; */
 
 }
