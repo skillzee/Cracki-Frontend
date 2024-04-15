@@ -51,6 +51,8 @@ body {
   overflow: hidden;
   cursor: pointer;
   margin: 20px;
+  box-shadow: 0 0 10px rgb(242, 152, 207), 0 0 20px rgb(234, 132, 190), 0 0 30px rgb(30, 7, 7);;
+
 }
 
 .authorName {
