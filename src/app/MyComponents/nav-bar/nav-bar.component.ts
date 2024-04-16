@@ -52,6 +52,7 @@ export class NavBarComponent {
       },
       (error)=>{
         console.log(error);
+        alert("User Not Found")
       })
     }
 
