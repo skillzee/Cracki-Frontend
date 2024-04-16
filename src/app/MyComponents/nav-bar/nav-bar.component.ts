@@ -5,11 +5,12 @@ import { routes } from '../../app.routes';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [LoginPageComponent, RouterModule, HttpClientModule, CommonModule],
+  imports: [LoginPageComponent, RouterModule, HttpClientModule, CommonModule, FormsModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
@@ -17,6 +18,8 @@ export class NavBarComponent {
   
 
   isNavbarCollapsed = true;
+  username!: string
+
 
   toggleNavbar() {
     this.isNavbarCollapsed = !this.isNavbarCollapsed;
@@ -40,6 +43,20 @@ export class NavBarComponent {
   })
     
   }
+
+  search(){
+    this.http.post<any>("https://cracki-backend.onrender.com/users/search", {username: this.username}, {withCredentials: true}).subscribe(
+      (response)=>{
+        console.log(response);
+        this.route.navigate(["user/"+response.user._id])
+      },
+      (error)=>{
+        console.log(error);
+      })
+    }
+
+    
+  
 
 
 
