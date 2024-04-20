@@ -51,7 +51,8 @@ background-image: url("https://media.istockphoto.com/id/1388281684/vector/seamle
   
   .post-image-container img {
     width: fit-content;
-    height: 540px;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
     border-radius: 10px;
     transition: transform 0.2s ease;

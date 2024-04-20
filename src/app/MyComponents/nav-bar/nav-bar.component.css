@@ -2,3 +2,42 @@
     padding-left: 1200px;
 }
 
+/* Navbar styling */
+.navbar {
+    background-color: #ffffff; /* Set the background color of the navbar */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  
+  .navbar-brand {
+    font-weight: bold; /* Make the navbar brand text bold */
+    color: #333333; /* Set the color of the navbar brand text */
+    font-size: 24px; /* Adjust the font size of the navbar brand text */
+  }
+  
+  .navbar-nav .nav-item {
+    margin-left: 10px; /* Add spacing between navbar items */
+  }
+  
+  .navbar-nav .nav-link {
+    color: #333333; /* Set the color of the navbar links */
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #007bff; /* Change color on hover for better feedback */
+  }
+  
+  .navbar-toggler {
+    border-color: #333333; /* Set the color of the navbar toggler border */
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #333333; /* Set the color of the navbar toggler icon */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .navbar-nav .nav-item {
+      margin-left: 0; /* Remove margin for better alignment on mobile */
+    }
+  }
+  
