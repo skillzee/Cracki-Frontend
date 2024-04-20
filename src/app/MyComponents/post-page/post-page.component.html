@@ -27,7 +27,7 @@
         <ul>
           <li *ngFor="let comment of post.comments">
             <p style="color: white;"><strong style="cursor: pointer;" (click)="getUserProfile(comment.user)">{{ comment.author }}</strong>: {{ comment.text }}</p>
-            <small>Posted on: {{ comment.createdAt | date }}</small>
+            <small style="color: white;">Posted on: {{ comment.createdAt | date }}</small>
           </li>
         </ul>
       </div>
