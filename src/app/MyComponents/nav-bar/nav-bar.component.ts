@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
 export class NavBarComponent {
   
 
-  isNavbarCollapsed = true;
+  isNavbarCollapsed = false;
   username!: string
 
 
