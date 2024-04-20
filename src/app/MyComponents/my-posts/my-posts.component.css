@@ -33,12 +33,13 @@ body {
   margin: 5px 0;
   font-size: 24px;
   font-weight: bold;
+  color: white;
 }
 
 .profile-username {
   margin: 0;
   font-size: 16px;
-  color: #666;
+  color: whitesmoke;
 }
 
 .post-card {
@@ -145,8 +146,9 @@ p {
 }
 
 .boxchild {
-  background-color: #c7c0d9;
+  /* background-color: rgb(177, 182, 234); */
+  background-color: rgb(30, 29, 29);
   width: 200px;
   height: 250px;
-  border-radius: 10px;
+  border-radius: 100%;
 }
