@@ -8,8 +8,8 @@
     <!-- <div class="info"> -->
     <!-- Comments Container -->
     <div class="comments-container info">
-      <h2 style="color: white;">{{ post.title }}</h2>
-      <p style="color: white;">
+      <h2>{{ post.title }}</h2>
+      <p>
       <i
               (click)="like(post._id)"
               [id]="'like-icon-' + post._id"
@@ -17,22 +17,22 @@
               style="padding-left: 5px;"
         ></i>
        {{ post.likes }}</p>
-      <p style="color: white;">Posted by: {{ post.username }} </p>
-      <p style="color: white;"> {{post.createdAt | date}}</p>
+      <p >Posted by: {{ post.username }} </p>
+      <p > {{post.createdAt | date}}</p>
 
 
   
-      <h3 style="font-size: medium; color: white;">Comments:</h3>
+      <h3 style="font-size: medium;">Comments:</h3>
       <div class="comments-list">
         <ul>
           <li *ngFor="let comment of post.comments">
-            <p style="color: white;"><strong style="cursor: pointer;" (click)="getUserProfile(comment.user)">{{ comment.author }}</strong>: {{ comment.text }}</p>
-            <small style="color: white;">Posted on: {{ comment.createdAt | date }}</small>
+            <p ><strong style="cursor: pointer;" (click)="getUserProfile(comment.user)">{{ comment.author }}</strong>: {{ comment.text }}</p>
+            <small>Posted on: {{ comment.createdAt | date }}</small>
           </li>
         </ul>
       </div>
 
-      <h2 style="color: white;">Add a comment</h2>
+      <h2 >Add a comment</h2>
       <form>
       <input type="text" name="comment" [(ngModel)]="comment" placeholder="comment">
       <button (click)="sendComment()" >Comment</button>
