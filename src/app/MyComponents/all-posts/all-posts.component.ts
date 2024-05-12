@@ -51,15 +51,15 @@ export class AllPostsComponent implements OnInit {
 
   
   like(userid: any) {
-    // Get the like icon element by ID
+
     const likeIcon = document.getElementById('like-icon-' + userid);
     // this.fetchPosts()
   
-    // Trigger animation by adding a CSS class ('clicked') to the like icon
+    
     if (likeIcon) {
-      likeIcon.classList.add('clicked'); // Add 'clicked' class to trigger animation
+      likeIcon.classList.add('clicked'); 
   
-      // Make the HTTP GET request to like the post
+
       this.http.get<any>('https://cracki-backend.onrender.com/posts/' + userid, { withCredentials: true }).subscribe(
         (response) => {
           if (response.success) {
@@ -70,13 +70,13 @@ export class AllPostsComponent implements OnInit {
             // this.router.navigate(["all"]) // Log the success message to the console
           }
   
-          // Remove the 'clicked' class after a short delay to allow animation to complete
+       
           setTimeout(() => {
-            likeIcon.classList.remove('clicked'); // Remove 'clicked' class to reset animation state
-          }, 400); // Adjust this timeout to match the animation duration in milliseconds
+            likeIcon.classList.remove('clicked'); 
+          }, 400); 
         },
         (error) => {
-          console.error('Error liking post:', error); // Log any error that occurs during the HTTP request
+          console.error('Error liking post:', error); 
         }
       );
     }
